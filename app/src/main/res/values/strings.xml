@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">GameOver</string>
+    <string name="action_sobre">Sobre</string>
+    <string name="title_activity_main_activity_sobre">Sobre</string>
+</resources>
