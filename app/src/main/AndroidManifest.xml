@@ -29,7 +29,7 @@
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.olvia.alexgameover.com.alex.gameover.MainActivity_Home" />
+                android:value="com.alex.gameover.MainActivity_Home" />
         </activity>
     </application>
 

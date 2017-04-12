@@ -1,7 +1,9 @@
 package com.alex.gameover;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -20,7 +22,7 @@ public class MainActivity_Home extends AppCompatActivity {
     private EditText numero;
     private Button jogar, reiniciar;
     private TextView mensagem, tentativa;
-    private int aleatorio, tentativas = 3;
+    private int aleatorio, tentativas = 3, cont = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +38,7 @@ public class MainActivity_Home extends AppCompatActivity {
         reiniciar.setEnabled(false);
         aleatorio = gerarAleatorio();
         tentativa = (TextView) findViewById(R.id.txtTentativas);
+        final AlertDialog.Builder alertDialog = new AlertDialog.Builder(MainActivity_Home.this);
 
 
         jogar.setOnClickListener(new View.OnClickListener() {
@@ -49,21 +52,37 @@ public class MainActivity_Home extends AppCompatActivity {
                     limpar();
                 } else {
                     numerousuario = Integer.parseInt(numero.getText().toString());
-                    if (numerousuario < 1 || numerousuario > 10) {
+                    if (numerousuario < 1 || numerousuario > 20) {
 
                         mensagem.setText("Digite um Número Válido!");
                         limpar();
                     } else if (aleatorio == numerousuario) {
-                        mensagem.setText("Parabéns!! Você Acertou !!");
+                        cont = cont + 1;
+
+                        alertDialog.setTitle("Parabéns...");
+                        alertDialog.setMessage("Você Acertou c/ " + cont + " Tentativa(s).\nNúmero sorteado: " + aleatorio);
+                        alertDialog.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                                dialog.dismiss();
+
+                            }
+                        });
+                        alertDialog.setIcon(R.drawable.icon);
+                        alertDialog.show();
                         numero.setEnabled(false);
                         jogar.setEnabled(false);
                         reiniciar.setEnabled(true);
                         tentativa.setText("");
+                        mensagem.setText("");
                         limpar();
 
 
                     } else {
                         tentativas = tentativas - 1;
+                        cont = cont + 1;
                         String stri = String.valueOf(tentativas);
                         tentativa.setText("Tentativas Restantes: " + stri);
                         if (numerousuario > aleatorio) {
@@ -79,8 +98,21 @@ public class MainActivity_Home extends AppCompatActivity {
                     numero.setEnabled(false);
                     reiniciar.setEnabled(true);
                     jogar.setEnabled(false);
-                    mensagem.setText("Você Perdeu !!! \n Tente Novamente.");
+                    alertDialog.setTitle("Perdeu...");
+                    alertDialog.setMessage("Acabaram as Tentativas\nNúmero sorteado era " + aleatorio);
+                    alertDialog.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+
+                            dialog.dismiss();
+
+                        }
+                    });
+                    alertDialog.setIcon(R.drawable.icon);
+                    alertDialog.show();
                     tentativa.setText("");
+                    mensagem.setText("");
                     limpar();
                 }
 
@@ -96,6 +128,7 @@ public class MainActivity_Home extends AppCompatActivity {
                 mensagem.setText("");
                 aleatorio = gerarAleatorio();
                 jogar.setEnabled(true);
+                cont = 0;
                 limpar();
             }
         });
@@ -107,7 +140,7 @@ public class MainActivity_Home extends AppCompatActivity {
     }
 
     private int gerarAleatorio() {
-        return (int) (Math.random() * 10 + 1);
+        return (int) (Math.random() * 20 + 1);
     }
 
     @Override

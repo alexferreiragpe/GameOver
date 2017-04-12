@@ -47,7 +47,7 @@
         android:layout_alignRight="@+id/btnReiniciar"
         android:layout_below="@+id/textView"
         android:layout_marginTop="54dp"
-        android:text="Insira um Valor entre [ 1 e 10 ]"
+        android:text="Insira um Valor entre [ 1 e 20 ]"
         android:textAlignment="textStart"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="@android:color/black"
@@ -101,7 +101,7 @@
         android:layout_below="@+id/btnVerificar"
         android:layout_marginTop="20dp"
         android:background="@drawable/fundoeditazul"
-        android:text="Reinicar"
+        android:text="Jogar Novamente"
         android:textColor="@android:color/black"
         android:textSize="20sp" />
 
