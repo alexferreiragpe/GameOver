@@ -32,6 +32,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:background="@drawable/fundoeditazul"
+        android:padding="10dp"
         android:paddingLeft="10dp"
         android:text="Game Over"
         android:textAlignment="center"
@@ -63,6 +64,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/textView3"
+        android:layout_marginTop="10dp"
         android:background="@drawable/fundoeditazul"
         android:ems="2"
         android:inputType="number"
@@ -95,6 +97,7 @@
         android:text="Verificar"
         android:textColor="@android:color/black"
         android:textSize="25sp"
+        android:textStyle="bold"
         tools:ignore="HardcodedText" />
 
     <Button
@@ -107,8 +110,9 @@
         android:layout_marginTop="20dp"
         android:background="@drawable/fundoeditazul"
         android:text="Jogar Novamente"
-        android:textColor="@android:color/black"
+        android:textColor="@android:color/background_light"
         android:textSize="20sp"
+        android:textStyle="bold"
         tools:ignore="HardcodedText" />
 
 </RelativeLayout>
