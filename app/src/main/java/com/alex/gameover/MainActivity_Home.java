@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,6 +20,7 @@ import com.example.olvia.alexgameover.R;
 public class MainActivity_Home extends AppCompatActivity {
 
     int numerousuario;
+    ImageButton btnSobre;
     private EditText numero;
     private Button jogar, reiniciar;
     private TextView mensagem, tentativa;
@@ -27,7 +29,7 @@ public class MainActivity_Home extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_activity__home);
+        setContentView(R.layout.activity__home);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -35,6 +37,7 @@ public class MainActivity_Home extends AppCompatActivity {
         jogar = (Button) findViewById(R.id.btnVerificar);
         reiniciar = (Button) findViewById(R.id.btnReiniciar);
         mensagem = (TextView) findViewById(R.id.txtMensagem);
+        btnSobre = (ImageButton) findViewById(R.id.btSobre);
         reiniciar.setEnabled(false);
         aleatorio = gerarAleatorio();
         tentativa = (TextView) findViewById(R.id.txtTentativas);
@@ -130,6 +133,14 @@ public class MainActivity_Home extends AppCompatActivity {
                 jogar.setEnabled(true);
                 cont = 0;
                 limpar();
+            }
+        });
+
+        btnSobre.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity_Home.this, MainActivitySobre.class));
+
             }
         });
 

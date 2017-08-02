@@ -11,7 +11,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.olvia.alexgameover.com.alex.gameover.MainActivity_Home"
-    tools:showIn="@layout/activity_main_activity__home">
+    tools:showIn="@layout/activity__home">
 
     <TextView
         android:id="@+id/txtTentativas"
@@ -50,8 +50,9 @@
         android:layout_alignRight="@+id/btnReiniciar"
         android:layout_below="@+id/textView"
         android:layout_marginTop="54dp"
+        android:gravity="center"
         android:text="Insira um Valor entre [ 1 e 20 ]"
-        android:textAlignment="textStart"
+        android:textAlignment="center"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="@android:color/black"
         android:textStyle="bold|italic"
@@ -81,9 +82,11 @@
         android:layout_alignParentStart="true"
         android:layout_below="@+id/txtTentativas"
         android:layout_marginTop="10dp"
-        android:textAlignment="textStart"
+        android:gravity="center"
+        android:textAlignment="center"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="@android:color/black" />
+        android:textColor="@android:color/black"
+        android:textStyle="bold|italic" />
 
     <Button
         android:id="@+id/btnVerificar"
@@ -114,5 +117,24 @@
         android:textSize="20sp"
         android:textStyle="bold"
         tools:ignore="HardcodedText" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/btnReiniciar"
+        android:layout_marginTop="40dp"
+        android:gravity="center">
+
+        <ImageButton
+            android:id="@+id/btSobre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btnReiniciar"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/botao_redondo_sobre"
+            app:srcCompat="@android:drawable/ic_menu_info_details" />
+    </RelativeLayout>
 
 </RelativeLayout>
